@@ -1,4 +1,4 @@
-name: Visit Website Twice Daily at Greek Time
+name: Run main.py Twice Daily at Greek Time
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
     - cron: '0 13 * * *'  # 16:00 EEST (13:00 UTC)
 
 jobs:
-  visit:
+  run-script:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,5 +21,5 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run visit script
-        run: python visit_website.py
+      - name: Run main.py
+        run: python main.py
