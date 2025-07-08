@@ -1,11 +1,9 @@
-name: Visit Website
+name: Visit Website Twice Daily at Greek Time
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: '0 12 * * *'  # Runs every day at 12:00 UTC (adjust as needed)
+    - cron: '0 4 * * *'   # 07:00 EEST (4:00 UTC)
+    - cron: '0 13 * * *'  # 16:00 EEST (13:00 UTC)
 
 jobs:
   visit:
