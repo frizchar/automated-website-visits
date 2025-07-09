@@ -3,7 +3,8 @@ name: Run main.py
 on:
   schedule:
     - cron: '0 4 * * *'   # 07:00 EEST (4:00 UTC)
-    - cron: '0 13 * * *'  # 16:00 EEST (13:00 UTC)
+    - cron: '0 15 * * *'  # 18:00 EEST (15:00 UTC)
+    - cron: '0 2 * * *'   # 05:00 EEST (2:00 UTC)
   workflow_dispatch:
 
 jobs:
