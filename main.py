@@ -1,8 +1,38 @@
-import requests
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
+import time
 
-def visit_website(url):
-    response = requests.get(url)
-    print(f"Visited {url} - Status code: {response.status_code}")
+# Initialize WebDriver (make sure chromedriver is in your PATH)
+driver = webdriver.Chrome()
 
-if __name__ == "__main__":
-    visit_website("https://castoma.streamlit.app/")
+# URL of your Streamlit app
+app_url = "https://castoma.streamlit.app"
+
+try:
+    # Open the app
+    driver.get(app_url)
+
+    # Wait for page to load
+    time.sleep(20)  # Adjust as needed or use explicit waits
+
+    try:
+        # Try to find the "Yes, get this app back up" button by its text
+        wake_button = driver.find_element(By.XPATH, "//button[contains(text(), 'Yes, get this app back up!')]")
+
+        # If found, click the button
+        if wake_button.is_displayed():
+            print("App is in sleep mode. Clicking wake-up button...")
+            wake_button.click()
+            # Wait for app to wake up
+            time.sleep(20)  # Adjust based on your app's wake-up time
+        else:
+            print("Wake-up button not visible.")
+    except NoSuchElementException:
+        print("App is not in sleep mode or wake-up button not found.")
+
+    # Continue with your automation here...
+
+finally:
+    # Close the browser when done
+    driver.quit()
