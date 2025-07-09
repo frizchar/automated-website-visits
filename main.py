@@ -3,8 +3,15 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-# Initialize WebDriver (make sure chromedriver is in your PATH)
-driver = webdriver.Chrome()
+# Set up ChromeOptions for headless mode
+options = webdriver.ChromeOptions()
+options.add_argument("--headless=new")  # Use new headless mode for Chrome 109+
+options.add_argument("--disable-gpu")   # Disable GPU acceleration (optional)
+options.add_argument("--no-sandbox")    # Recommended for some Linux environments
+options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
+
+# Initialize WebDriver with options
+driver = webdriver.Chrome(options=options)
 
 # URL of your Streamlit app
 app_url = "https://castoma.streamlit.app"
