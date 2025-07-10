@@ -1,2 +1,2 @@
 # visit-castoma-streamlit-app
-automated visit to castoma streamlit app
+automated visit to castoma streamlit app using headless selenium scheduler
