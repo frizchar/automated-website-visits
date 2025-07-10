@@ -5,7 +5,7 @@ Automated visit to website using:
 - python script ```main.py``` that includes headless Chrome selenium and
 - script ```visit-castoma.yml``` that schedules runs of ```main.py``` via GitHub workflows
 
-In our implementation we visit the website https://castoma.streamlit.app/
+In our implementation we visit the website: https://castoma.streamlit.app/
 
 ### Dependencies
 The required packages are included in file ```requirements.txt```.<br>
